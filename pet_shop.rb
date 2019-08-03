@@ -78,11 +78,7 @@ def customer_can_afford_pet(customer, new_pet_hash)
 end
 
 def sell_pet_to_customer(pet_shop_hash, pet_requested, customer)
-  for pet_in_stock in pet_shop_hash[:pets]
-    if pet_requested[:name] == pet_in_stock[:name]
-      pet_to_buy = pet_requested
-    end
-  end
+  pet_to_buy = find_pet_by_name(pet_shop_hash, pet_requested[:name])
   return nil if pet_to_buy == nil
   return nil if customer_can_afford_pet(customer, pet_to_buy) == false
   customer[:cash] -= pet_to_buy[:price]

@@ -1,19 +1,23 @@
-def pet_shop_name(hash)
-  return hash[:name]
+def pet_shop_name(pet_shop_hash)
+  return pet_shop_hash[:name]
 end
 
-def total_cash(hash)
-  return hash[:admin][:total_cash]
+def total_cash(pet_shop_hash)
+  return pet_shop_hash[:admin][:total_cash]
 end
 
-def add_or_remove_cash(hash, amount)
-  return hash[:admin][:total_cash] += amount
+def add_or_remove_cash(pet_shop_hash, amount)
+  return pet_shop_hash[:admin][:total_cash] += amount
 end
 
-def pets_sold(hash)
-  return hash[:admin][:pets_sold]
+def pets_sold(pet_shop_hash)
+  return pet_shop_hash[:admin][:pets_sold]
 end
 
-def increase_pets_sold(hash, amount)
-  return hash[:admin][:pets_sold] += amount
+def increase_pets_sold(pet_shop_hash, amount)
+  return pet_shop_hash[:admin][:pets_sold] += amount
+end
+
+def stock_count(pet_shop_hash)
+  return pet_shop_hash[:pets].length
 end

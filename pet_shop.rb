@@ -76,3 +76,18 @@ def customer_can_afford_pet(customer, new_pet_hash)
     return false
   end
 end
+
+def sell_pet_to_customer(pet_shop_hash, pet_requested, customer)
+  for pet_in_stock in pet_shop_hash[:pets]
+    if pet_requested[:name] == pet_in_stock[:name]
+      pet_to_buy = pet_requested
+    end
+  end
+  return nil if pet_to_buy == nil
+  return nil if customer_can_afford_pet(customer, pet_to_buy) == false
+  customer[:cash] -= pet_to_buy[:price]
+  pet_shop_hash[:admin][:total_cash] += pet_to_buy[:price]
+  pet_shop_hash[:pets].delete(pet_to_buy)
+  pet_shop_hash[:admin][:pets_sold] += 1
+  customer[:pets] << pet_to_buy
+end

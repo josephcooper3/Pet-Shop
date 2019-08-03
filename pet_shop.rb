@@ -78,7 +78,7 @@ def customer_can_afford_pet(customer, new_pet_hash)
 end
 
 def sell_pet_to_customer(pet_shop_hash, pet_requested, customer)
-  return nil if pet_requested == nil
+  return nil if pet_requested.class != Hash
   pet_to_buy = find_pet_by_name(pet_shop_hash, pet_requested[:name])
   return nil if pet_to_buy == nil
   return nil if customer_can_afford_pet(customer, pet_to_buy) == false

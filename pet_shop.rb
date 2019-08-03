@@ -13,3 +13,7 @@ end
 def pets_sold(hash)
   return hash[:admin][:pets_sold]
 end
+
+def increase_pets_sold(hash, amount)
+  return hash[:admin][:pets_sold] += amount
+end

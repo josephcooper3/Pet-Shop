@@ -7,5 +7,9 @@ def total_cash(hash)
 end
 
 def add_or_remove_cash(hash, amount)
-  hash[:admin][:total_cash] += amount
+  return hash[:admin][:total_cash] += amount
+end
+
+def pets_sold(hash)
+  return hash[:admin][:pets_sold]
 end
